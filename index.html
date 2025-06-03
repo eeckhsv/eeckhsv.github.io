@@ -33,16 +33,7 @@
 </head>
 <body>
     <div class="logo-container">
-        <img src="" alt="Capybara Logo" id="capybara-img">
+        <img src="capi.png" alt="Capybara Logo">
     </div>
-    <script>
-        window.fs.readFile('capi.png').then(data => {
-            const blob = new Blob([data], { type: 'image/png' });
-            const url = URL.createObjectURL(blob);
-            document.getElementById('capybara-img').src = url;
-        }).catch(err => {
-            console.error('Error loading image:', err);
-        });
-    </script>
 </body>
 </html>
