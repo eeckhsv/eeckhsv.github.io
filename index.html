@@ -25,74 +25,24 @@
             align-items: center;
         }
         
-        .capybara-logo {
-            width: 300px;
-            height: 300px;
-            background-color: white;
-            border-radius: 50%;
-            border: 8px solid black;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .capybara-silhouette {
-            width: 200px;
-            height: 200px;
-            background-color: black;
-            position: relative;
-            clip-path: polygon(
-                45% 20%, 
-                55% 15%, 
-                65% 18%, 
-                70% 25%, 
-                75% 35%, 
-                80% 45%, 
-                85% 55%, 
-                85% 65%, 
-                80% 75%, 
-                70% 80%, 
-                60% 85%, 
-                50% 85%, 
-                40% 80%, 
-                30% 75%, 
-                25% 65%, 
-                25% 55%, 
-                30% 45%, 
-                35% 35%, 
-                40% 25%
-            );
-        }
-        
-        .capybara-silhouette::before {
-            content: '';
-            position: absolute;
-            width: 15px;
-            height: 25px;
-            background-color: white;
-            border-radius: 50%;
-            top: 30%;
-            left: 35%;
-        }
-        
-        .horse-silhouette::after {
-            content: '';
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            background-color: white;
-            border-radius: 50%;
-            top: 65%;
-            left: 25%;
+        img {
+            max-width: 300px;
+            height: auto;
         }
     </style>
 </head>
 <body>
     <div class="logo-container">
-        <div class="horse-logo">
-            <div class="horse-silhouette"></div>
-        </div>
+        <img src="" alt="Capybara Logo" id="capybara-img">
     </div>
+    <script>
+        window.fs.readFile('capi.png').then(data => {
+            const blob = new Blob([data], { type: 'image/png' });
+            const url = URL.createObjectURL(blob);
+            document.getElementById('capybara-img').src = url;
+        }).catch(err => {
+            console.error('Error loading image:', err);
+        });
+    </script>
 </body>
 </html>
